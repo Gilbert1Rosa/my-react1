@@ -8,24 +8,32 @@ export class Board extends React.Component {
     }
     
     render() {
-      return (
+      var squares = this.props.squares.map((value, index) => {
+        return (
+          this.renderSquare(index)
+        )
+      });
+      var board = (
         <div>
           <div className="board-row" onClick={() => console.log(this.props.squares)}>
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
+            {squares.slice(0, 3)}
           </div>
           <div className="board-row" onClick={() => console.log(this.props.squares)}>
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
+            {squares.slice(3, 6)}
           </div>
           <div className="board-row" onClick={() => console.log(this.props.squares)}>
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
+            {squares.slice(6, 9)}
           </div>
         </div>
       );
+      var something = (
+        <div>asdf</div>
+      );
+      return (
+        <div>
+        {board}
+        {something}
+        </div>
+      )
     }
 }
